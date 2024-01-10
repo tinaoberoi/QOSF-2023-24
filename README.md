@@ -3,13 +3,12 @@
 # H2
 
 - Comapring Errors between Exact energy and GPU/CPU Energy
-![](./images/t4_errors.png)
-![](./images/v100_errors.png)
-![](./images/A1004_errors.png)
+
+<img src="./images/t4_errors.png" width="200"/> <img src="./images/v100_errors.png" width="200"/> <img src="./images/A100_errors.png" width="200"/>
+
 
 - Comparing Errors between CPU and GPU times averaged over `50`
-![](./images/t4_times.png)
-![](./images/v100_times.png)
-![](./images/A1004_times.png)
+
+<img src="./images/t4_times.png" width="200"/> <img src="./images/v100_times.png" width="200"/> <img src="./images/A100_times.png" width="200"/>
 
 # LiH
