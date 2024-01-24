@@ -27,10 +27,6 @@ This study presents a focused evaluation of quantum computing simulations using 
   
 <img src="./images/T4_optimizer_time.png" width="200"/>  <img src="./images/T4_optimizer_errors.png" width="200" height="165"/>
 
-- Compairing noisy simulation against GPU
-
-- Compairing GPU vs QPU
-  
 - Summary of Data
   
   - The qiskit `cudastatevec` GPU estimator outperforms qiskit estimator in terms of error and time. 
