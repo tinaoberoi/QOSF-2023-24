@@ -20,10 +20,7 @@ This study presents a focused evaluation of quantum computing simulations using 
 
 - Compairing with resilience level
   
-<img src="./images/T4_resilience_levels_time.png" width="200"/>
-
-
-<img src="./images/T4_resilience_levels_error.png" width="200"/>
+<img src="./images/T4_resilience_levels_time.png" width="200"/> <img src="./images/T4_resilience_levels_error.png" width="200"/>
 
 - Compairing simulators
   
