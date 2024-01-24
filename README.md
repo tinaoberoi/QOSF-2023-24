@@ -2,13 +2,29 @@
 
 # H2
 
+- Abstract
+  
+
 - Comapring Errors between Exact energy and GPU/CPU Energy
 
-<img src="./images/t4_errors.png" width="200"/> <img src="./images/v100_errors.png" width="200"/> <img src="./images/A100_errors.png" width="200"/>
+<img src="./images/T4_error.png" width="200"/> <img src="./images/V100_error.png" width="200"/> <img src="./images/A100_error.png" width="200"/>
 
 
 - Comparing Times between CPU and GPU times averaged over `50`
 
-<img src="./images/t4_times.png" width="200"/> <img src="./images/v100_times.png" width="200"/> <img src="./images/A100_times.png" width="200"/>
+<img src="./images/T4_time.png" width="200"/> <img src="./images/V100_time.png" width="200"/> <img src="./images/A100_time.png" width="200" height = "150"/>
+
+- Compairing with resilience level
+  
+<img src="./images/T4_resilience_levels_time.png" width="200">
+
+
+<img src="./images/T4_resilience_levels_error.png" width="200">
+
+- Compairing noisy simulation against GPU
+
+- Compairing GPU vs QPU
+  
+- Summary of Data
 
 # LiH
