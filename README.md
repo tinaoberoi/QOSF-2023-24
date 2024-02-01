@@ -29,7 +29,7 @@ After smoothening using `savgol_filter`
 
 - Compairing simulators
   
-<img src="./images/T4_optimizer_time.png" width="400"/>  <img src="./images/T4_optimizer_errors.png" width="400" height="245"/>
+<img src="./images/T4_optimizer_time.png" width="400"/>  <img src="./images/T4_optimizer_errors.png" width="400" height="300"/>
 
 ## Summary of Data
   
