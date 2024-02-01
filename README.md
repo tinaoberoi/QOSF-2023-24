@@ -22,6 +22,10 @@ This study presents a focused evaluation of quantum computing simulations using 
   
 <img src="./images/T4_resilience_levels_time.png" width="200"/> <img src="./images/T4_resilience_levels_error.png" width="200"/>
 
+After smoothening using `savgol_filter`
+
+<img src="images/T4_resilience_levels_time_with_filter.png" width="200"/> <img src="./images/T4_resilience_levels_error_with_filter.png" width="200"/>
+
 - Compairing simulators
   
 <img src="./images/T4_optimizer_time.png" width="200"/>  <img src="./images/T4_optimizer_errors.png" width="200" height="165"/>
