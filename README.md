@@ -11,13 +11,13 @@ This study presents a focused evaluation of quantum computing simulations using 
 
 - Comapring Errors between Exact energy and GPU/CPU Energy
 
-<img src="./images/T4_error.png" width="300"/>  <img src="./images/V100_error.png" width="300"/> 
-<img src="./images/A100_error.png" width="300" />
+<img src="./images/T4_error.png" width="400"/>  <img src="./images/V100_error.png" width="400"/> 
+<img src="./images/A100_error.png" width="400" />
 
 
 - Comparing Times between CPU and GPU times averaged over `50`
 
-<img src="./images/T4_time.png" width="300"/> <img src="./images/V100_time.png" width="300"/> <img src="./images/A100_time.png" width="300" height = "250"/>
+<img src="./images/T4_time.png" width="400"/> <img src="./images/V100_time.png" width="400"/> <img src="./images/A100_time.png" width="400" height = "250"/>
 
 - Compairing with resilience level
   
