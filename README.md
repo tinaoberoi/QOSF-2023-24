@@ -11,25 +11,25 @@ This study presents a focused evaluation of quantum computing simulations using 
 
 - Comapring Errors between Exact energy and GPU/CPU Energy
 
-<img src="./images/T4_error.png" width="400"/>  <img src="./images/V100_error.png" width="400"/> 
-<img src="./images/A100_error.png" width="400" />
+<img src="./images/T4_error.png" width="400" height="300"/>  <img src="./images/V100_error.png" width="400" height="300"/> 
+<img src="./images/A100_error.png" width="400" height="300"/>
 
 
 - Comparing Times between CPU and GPU times averaged over `50`
 
-<img src="./images/T4_time.png" width="400"/> <img src="./images/V100_time.png" width="400"/> <img src="./images/A100_time.png" width="400" height = "300"/>
+<img src="./images/T4_time.png" width="400" height="300"/> <img src="./images/V100_time.png" width="400" height="300"/> <img src="./images/A100_time.png" width="400" height = "300"/>
 
 - Compairing with resilience level
   
-<img src="./images/T4_resilience_levels_time.png" width="400"/> <img src="./images/T4_resilience_levels_error.png" width="400" height="300"/>
+<img src="./images/T4_resilience_levels_time.png" width="400" height="300"/> <img src="./images/T4_resilience_levels_error.png" width="400" height="300"/>
 
 After smoothening using `savgol_filter`
 
-<img src="images/T4_resilience_levels_time_with_filter.png" width="400"/> <img src="./images/T4_resilience_levels_error_with_filter.png" width="400"/>
+<img src="images/T4_resilience_levels_time_with_filter.png" width="400" height="300"/> <img src="./images/T4_resilience_levels_error_with_filter.png" width="400" height="300"/>
 
 - Compairing simulators
   
-<img src="./images/T4_optimizer_time.png" width="400"/>  <img src="./images/T4_optimizer_errors.png" width="400" height="300"/>
+<img src="./images/T4_optimizer_time.png" width="400" height="300"/>  <img src="./images/T4_optimizer_errors.png" width="400" height="300"/>
 
 ## Summary of Data
   
