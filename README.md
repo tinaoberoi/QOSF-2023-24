@@ -17,7 +17,7 @@ This study presents a focused evaluation of quantum computing simulations using 
 
 - Comparing Times between CPU and GPU times averaged over `50`
 
-<img src="./images/T4_time.png" width="400"/> <img src="./images/V100_time.png" width="400"/> <img src="./images/A100_time.png" width="400" height = "250"/>
+<img src="./images/T4_time.png" width="400"/> <img src="./images/V100_time.png" width="400"/> <img src="./images/A100_time.png" width="400" height = "300"/>
 
 - Compairing with resilience level
   
