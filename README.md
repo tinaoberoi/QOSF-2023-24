@@ -39,7 +39,7 @@ For the next phase we compare how resilience level affect the performance while 
 <img src="./images/T4_resilience_level_times.png">
 
 
-<img src="./images/T4_cpu_gpu_errors_comparison.png">
+<img src="./images/T4_resilience_level_errors.png">
 
 ## Summary of Data
   
