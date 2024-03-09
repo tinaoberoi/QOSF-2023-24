@@ -11,13 +11,12 @@ This study presents a focused evaluation of quantum computing simulations using 
 - Comparing 
 - Comparing Errors between Exact energy and GPU/CPU Energy
 
-<img src="./images/T4_error.png" width="400" height="300"/>  <img src="./images/V100_error.png" width="400" height="300"/> 
-<img src="./images/A100_error.png" width="400" height="300"/>
+<img src="./images/T4_cpu_gpu_errors_comparison.png">
 
 
 - Comparing Times between CPU and GPU times averaged over `50`
 
-<img src="./images/T4_time.png" width="400" height="300"/> <img src="./images/V100_time.png" width="400" height="300"/> <img src="./images/A100_time.png" width="400" height = "300"/>
+<img src="./images/T4_cpu_gpu_time_comparison.png">
 
 
 As expected the GPU performed better than the CPU based simulators. The maximum performance achieved is `5x` using `SLSQP` optimizers.
