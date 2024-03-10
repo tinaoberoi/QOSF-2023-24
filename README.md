@@ -110,12 +110,16 @@ Thus we will be using `no resilience level` for performance measurement.
 
 Using the optimum setup for VQE we benchmark the performance of VQE qiskit implementation for `H2` and `LiH` molecule on 3 GPU platforms`T4`, `V100` and `A100`.
 
-For H2 
+**For H2**
 <hr>
-<img src="./images/performance_comparison_h2.png>
+<img src="./images/performance_comparison_h2.png">
 
-For LiH
-<img src="./images/performance_comparison_LiH.png>
+
+**For LiH**
+<hr>
+<img src="./images/performance_comparison_LiH.png"/>
+
+
 
   - The qiskit `cudastatevec` GPU estimator outperforms qiskit estimator in terms of error and time. 
   - The time and error comparison based on different resilience levels in qiskit is validated.
