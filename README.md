@@ -120,8 +120,13 @@ Using the optimum setup for VQE we benchmark the performance of VQE qiskit imple
 <img src="./images/performance_comparison_LiH.png"/>
 
 
+Benchmarking results
 
-  - The qiskit `cudastatevec` GPU estimator outperforms qiskit estimator in terms of error and time. 
-  - The time and error comparison based on different resilience levels in qiskit is validated.
-  - The best performing optimizer in terms of performance and error for VQE H2 use case is `SLSQP`
+| Molecule | Performance on T4 | Performance on V100 | Performance on A100 |
+| -------- | ----------------- | ------------------- | ------------------- |
+| LiH      | 9x                | 9.5x                | 12.1x               |
+| H2       | 16x               | 23x                 | 36.25x              |
+
+
+Using qiskit's GPU enable Aer simulators we succesfully benchmarked VQE algorithms. Achieving a maxium performance of `36x` in case of H2 molecule and `12x` in case of LiH molecule. 
 
