@@ -1,7 +1,6 @@
 # QOSF-2023-24
 
-## Title
-Title: Evaluating Qiskit Aer on A100 GPU vs Qiskit Estimator on CPU: A Comparative Study Under Limited Compute Resources
+## Evaluating Qiskit VQE on GPU vs CPU: A Comparative Study Under Limited Compute Resources
 
 ## Abstract
 
@@ -12,7 +11,7 @@ In order to understand a molecule properties such as ground state energy play an
 
 However, solving for ground state energy of molecules is difficult on classical computers due to complex nature of interactions involved within a molecule. Molecular simulation problems grow exponentially with the increase in number of particles, making it infeasible for classical computers. This computational challenges can be solved using quantum computing algorithms like `Variational Quantum Algorithms`.
 
-Variational Quantum EigenSolver (VQE) algorithms is a hybrod quantum-classical algorithm that uses variational technique to find minimum eigen values of a Hamiltonian. I have a VQE Tutorial explaining steps involved for VQE implementation from scratch, do check it out [here](https://github.com/tinaoberoi/Tutorial_VQE/blob/main/part2_tutorial.ipynb). This tutorial explains a step by step process for finding ground state energy of  `LiH` molecule.
+Variational Quantum EigenSolver (VQE) algorithms is a hybrid quantum-classical algorithm that uses variational technique to find minimum eigen values of a Hamiltonian. I have a VQE Tutorial explaining steps involved for VQE implementation from scratch, do check it out [here](https://github.com/tinaoberoi/Tutorial_VQE/blob/main/part2_tutorial.ipynb). This tutorial explains a step by step process for finding ground state energy of  `LiH` molecule.
 
 In this project we implement VQE using qiskit both for H2 and LiH molecules.
 ## Approach for VQE qiskit implementation
@@ -21,7 +20,7 @@ In this project we implement VQE using qiskit both for H2 and LiH molecules.
    Qiskit has drivers that act as interfaces to classical chemistry. The available drives are as follows `PSI4Driver`, `PyQuanteDriver`, `PySCFDriver` are available.
    In our case we are using `PySCFDriver`. 
    
-   ```
+   ```python
     geometry = (["H", "H"], [(0.0, 0.0, 0.0), (0.0, 0.0, 0.735)], charge=0, multiplicity=1)
     molecule = MoleculeInfo(geometry)
     driver = PySCFDriver.from_molecule(molecule, basis="sto3g")
@@ -30,24 +29,23 @@ In this project we implement VQE using qiskit both for H2 and LiH molecules.
 2. Map molecular Hamiltonians to qubit Hamiltonians
 
     For these transformations here we have used `Jordan Wigner` transformations. Used as 
-    ```
-    # mapper
+    ```python
     mapper = JordanWignerMapper()
     qubit_op = mapper.map(problem.second_q_ops()[0])
     ```
 3. Create an ansatz
     One of the crucial steps in VQE to final ground state is choosing the correct ansatz. Here we are using the `Unitary Coupled-Cluster Ansatz (UCC)`. 
-    ```
-      ansatz = UCCSD(
-          problem.num_spatial_orbitals,
-          problem.num_particles,
-          mapper,
-          initial_state=HartreeFock(
-              problem.num_spatial_orbitals,
-              problem.num_particles,
-              mapper,
-          ),
-      )
+    ```python
+    ansatz = UCCSD(
+        problem.num_spatial_orbitals,
+        problem.num_particles,
+        mapper,
+        initial_state=HartreeFock(
+            problem.num_spatial_orbitals,
+            problem.num_particles,
+            mapper,
+        ),
+    )
     ```
 
 4. Choosing Optimizers
@@ -58,12 +56,12 @@ In this project we implement VQE using qiskit both for H2 and LiH molecules.
 The hybrid-classical approach has the capability to leverage the power of GPU's, the classical part of the algorithm could be accelerated on GPU platforms helping to achieve better performance. For example: Finding ground state energy of LiH takes around 20min for each run and with GPU this could be reduces to around 2 min.
 
 For using GPU qiskit has `AerSimulators` and you can set options to use GPU.
-```
-  gpu_estimator = AerEstimator(
-    run_options={"seed": seed},
-    transpile_options={"seed_transpiler": seed},)
-  gpu_estimator.set_options(device='GPU')
-  gpu_estimator.set_options(cuStateVec_enable=True)
+```python
+gpu_estimator = AerEstimator(
+  run_options={"seed": seed},
+  transpile_options={"seed_transpiler": seed},)
+gpu_estimator.set_options(device='GPU')
+gpu_estimator.set_options(cuStateVec_enable=True)
 ```
 
 ## Results
