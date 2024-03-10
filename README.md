@@ -12,9 +12,49 @@ In order to understand a molecule properties such as ground state energy play an
 
 However, solving for ground state energy of molecules is difficult on classical computers due to complex nature of interactions involved within a molecule. Molecular simulation problems grow exponentially with the increase in number of particles, making it infeasible for classical computers. This computational challenges can be solved using quantum computing algorithms like `Variational Quantum Algorithms`.
 
-Variational Quantum EigenSolver (VQE) algorithms is a hybrod quantum-classical algorithm that uses variational technique to find minimum eigen values of a Hamiltonian. I have a VQE Tutorial explaining steps involved for VQE implementation from scratch, do check it out [here](https://github.com/tinaoberoi/Tutorial_VQE/blob/main/part2_tutorial.ipynb).
+Variational Quantum EigenSolver (VQE) algorithms is a hybrod quantum-classical algorithm that uses variational technique to find minimum eigen values of a Hamiltonian. I have a VQE Tutorial explaining steps involved for VQE implementation from scratch, do check it out [here](https://github.com/tinaoberoi/Tutorial_VQE/blob/main/part2_tutorial.ipynb). This tutorial explains a step by step process for finding ground state energy of  `LiH` molecule.
 
-Approach for simulating vqe using qiskit. Explain what all libraries used.
+In this project we implement VQE using qiskit both for H2 and LiH molecules.
+## Approach for VQE qiskit implementation
+
+1. Using Drivers to extracts information
+   Qiskit has drivers that act as interfaces to classical chemistry. The available drives are as follows `PSI4Driver`, `PyQuanteDriver`, `PySCFDriver` are available.
+   In our case we are using `PySCFDriver`. 
+   
+   ```
+    geometry = (["H", "H"], [(0.0, 0.0, 0.0), (0.0, 0.0, 0.735)], charge=0, multiplicity=1)
+    molecule = MoleculeInfo(geometry)
+    driver = PySCFDriver.from_molecule(molecule, basis="sto3g")
+    problem = driver.run()
+    ```
+2. Map molecular Hamiltonians to qubit Hamiltonians
+
+    For these transformations here we have used `Jordan Wigner` transformations. Used as 
+    ```
+    # mapper
+    mapper = JordanWignerMapper()
+    qubit_op = mapper.map(problem.second_q_ops()[0])
+    ```
+3. Create an ansatz
+    One of the crucial steps in VQE to final ground state is choosing the correct ansatz. Here we are using the `Unitary Coupled-Cluster Ansatz (UCC)`. 
+    ```
+      ansatz = UCCSD(
+          problem.num_spatial_orbitals,
+          problem.num_particles,
+          mapper,
+          initial_state=HartreeFock(
+              problem.num_spatial_orbitals,
+              problem.num_particles,
+              mapper,
+          ),
+      )
+    ```
+
+4. Choosing Optimizers
+    In accordance with the variational method, its parameters must be optimized to minimize the expectation value of the target Hamiltonian. We start with the optimizer popular for supressing noise `equential Least Squares Programming optimizer (SLSQP)`.
+
+## Accelerating implementation using GPUs
+
 How GPUs can help achieve better performance. Explain benchmarking results.
 
 ## Results
