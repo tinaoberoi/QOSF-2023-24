@@ -65,8 +65,10 @@ gpu_estimator.set_options(cuStateVec_enable=True)
 ```
 
 ## Results
-- Comparing Errors between Exact energy and GPU/CPU Energy
 
+CPU Specification: Intel(R) Xeon(R) CPU @ 2.20GHz
+
+- Comparing Errors between Exact energy and GPU/CPU Energy
 <img src="./images/T4_cpu_gpu_errors_comparison.png">
 
 
