@@ -89,6 +89,18 @@ After compairing different optimizers, the top three performers both in terms of
   <li> TNC
 </ul>
 
+On comparing among the top 3 candidates,
+
+<img src="./images/time_comparison_3optimzers.png">
+
+<img src="./images/error_comparison_3optimzers.png">
+
+ADAM and TNC clearly performed better than SLSQP. On comparison between the two TNC seemed to perform the best among three in terms of performance and error percentage is similar in all three.
+
+<img src="./images/time_comparison_2optimzers.png">
+
+<img src="./images/error_comparison_2optimzers.png">
+
 For the next phase we compare how resilience level affect the performance while improving the error percentages on `TNC`.
 
 - Compairing with resilience level
