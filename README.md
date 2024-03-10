@@ -55,7 +55,16 @@ In this project we implement VQE using qiskit both for H2 and LiH molecules.
 
 ## Accelerating implementation using GPUs
 
-How GPUs can help achieve better performance. Explain benchmarking results.
+The hybrid-classical approach has the capability to leverage the power of GPU's, the classical part of the algorithm could be accelerated on GPU platforms helping to achieve better performance. For example: Finding ground state energy of LiH takes around 20min for each run and with GPU this could be reduces to around 2 min.
+
+For using GPU qiskit has `AerSimulators` and you can set options to use GPU.
+```
+  gpu_estimator = AerEstimator(
+    run_options={"seed": seed},
+    transpile_options={"seed_transpiler": seed},)
+  gpu_estimator.set_options(device='GPU')
+  gpu_estimator.set_options(cuStateVec_enable=True)
+```
 
 ## Results
 - Comparing Errors between Exact energy and GPU/CPU Energy
@@ -85,14 +94,29 @@ After compairing different optimizers, the top three performers both in terms of
 For the next phase we compare how resilience level affect the performance while improving the error percentages on `TNC`.
 
 - Compairing with resilience level
-  
+
+The parameter `resilience level` provide error corrections.
+
 <img src="./images/T4_resilience_level_times.png">
 
 
 <img src="./images/T4_resilience_level_errors.png">
 
-## Summary of Data
-  
+We can see that suing `resilience levels` increase the time taken, but at the same time there is not much improvement in `errors`.
+
+Thus we will be using `no resilience level` for performance measurement.
+
+## Conclusion
+
+Using the optimum setup for VQE we benchmark the performance of VQE qiskit implementation for `H2` and `LiH` molecule on 3 GPU platforms`T4`, `V100` and `A100`.
+
+For H2 
+<hr>
+<img src="./images/performance_comparison_h2.png>
+
+For LiH
+<img src="./images/performance_comparison_LiH.png>
+
   - The qiskit `cudastatevec` GPU estimator outperforms qiskit estimator in terms of error and time. 
   - The time and error comparison based on different resilience levels in qiskit is validated.
   - The best performing optimizer in terms of performance and error for VQE H2 use case is `SLSQP`
